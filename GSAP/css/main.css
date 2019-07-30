@@ -1,23 +1,33 @@
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Varela Round', sans-serif;
   padding: 9em;
 }
 
 h1 {
+  font-family: 'Lobster', cursive;
   font-size: 4em;
   width: 25%;
-  color: red;
+  color: #E60023;
   line-height: 1em;
 }
 
 button {
   background: none;
   border: 1px solid black;
-  font-family: 'Merriweather', serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   font-size: 1.5em;
   padding: .5em 1em;
   cursor: pointer;
+  border-radius: 20px;
+}
+
+a {
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  text-decoration: none;
+  opacity: 0;
+  font-size: 1.25em;
 }
 
 .panel {
@@ -25,7 +35,7 @@ button {
   width: 55%;
   bottom: 0;
   right: 0;
-  background: #EAEAEA;
+  background: #f59089;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 15% 7%;
@@ -33,6 +43,10 @@ button {
           transform: scaleY(0);
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
+}
+
+.panel #article {
+  fill: white;
 }
 
 .panel img {
@@ -48,11 +62,12 @@ button {
   font-size: 1.9em;
   width: 80%;
   opacity: 0;
+  color: white;
 }
 
 .panel .box {
   border: 5px solid lightgray;
-  width: 80%;
+  width: 85%;
   height: 40%;
   position: absolute;
   left: -7%;

@@ -1,0 +1,99 @@
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Lobster&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Varela+Round&display=swap);
+
+// Font Variable
+$lobster: 'Lobster', cursive;
+$varela: 'Varela Round', sans-serif;
+
+// Header 
+header {
+    font-family: $lobster; 
+    color: white;
+    background: #E60023;
+    display: flex;
+    height: 75px;
+
+    h1 {
+        font-size: 42px;
+        margin-left: 50px;
+        margin-top: 15px;
+    }
+
+    nav {
+        margin-left: 375px;
+        margin-top: 30px;
+
+        a {
+            font-size: 30px;
+            margin-left: 125px;
+        }
+    }
+}
+
+// Footer 
+footer {
+    color: white;
+    background: #E60023;
+    margin-top: 50px;
+    
+    h3 {
+        font-family: $lobster;
+        text-align: center;
+        font-size: 24px;
+        padding-top: 15px;
+        line-height: 0.4;
+    }
+
+    p {
+        font-family: $varela;
+        font-size: 14px;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+}
+
+// Contact Form
+.form {
+    font-family: $varela;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 280px;
+    margin-top: 100px;
+    background:#f59089;
+    border-radius: 20px;
+
+    .form-info {
+        margin: 15px;
+        margin-left: 250px;
+
+        input {
+            width: 50%;
+            padding: 5px;
+        }
+    }
+
+    .form-response {
+        margin: 15px;
+        margin-left: 250px;
+
+        input {
+            width: 75%;
+            padding-bottom: 50px;
+        }
+    }
+
+    button {
+        border-radius: 20px;
+        width: 100px;
+        font-family: $varela;
+        font-size: 18px;
+        margin-left: 500px;
+       
+    }
+
+}

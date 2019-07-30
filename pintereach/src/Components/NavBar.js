@@ -1,11 +1,11 @@
-import React from 'react';
-import {Menu } from "semantic-ui-react";
+import React, {useState} from 'react';
+import {Menu} from "semantic-ui-react";
 
 export default function NavBar () {
-  let state = { activeItem: "home" };
+    const [activeItem, setActiveItem] = useState('home');
 
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
+  const handleItemClick = (e, { name }) => {
+    setActiveItem(name);
     console.log(name);
   };
 
@@ -14,24 +14,24 @@ export default function NavBar () {
           <Menu.Item
             name="Home"
             active={activeItem === "home"}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
           />
         <Menu.Menu position="right">
           
           <Menu.Item
             name="Signup"
             active={activeItem === "signup"}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
           />
           <Menu.Item
             name="Login"
             active={activeItem === "login"}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
           />
           <Menu.Item
             name="logout"
             active={activeItem === "logout"}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
           />
         </Menu.Menu>
       </Menu>

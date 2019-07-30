@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer>
-            {/* Link to Contact Page */}
             <div>
             <Link to="/contact" style={{ textDecoration: 'none', color: 'white' }}>
                 <h3>Contact</h3>

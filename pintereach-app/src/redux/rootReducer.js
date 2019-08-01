@@ -2,11 +2,11 @@ import { FETCH_ARTICLES_PENDING, FETCH_ARTICLES_SUCCESS, FETCH_ARTICLES_ERROR } 
 
 const initialState = {
     pending: false,
-    products: [], 
+    articles: [], 
     error: null
 }
 
-export function articlesReducer(state = initialState, action) {
+export function rootReducer(state = initialState, action) {
     switch(action.type) {
         case FETCH_ARTICLES_PENDING:
             return {

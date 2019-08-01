@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      {/* <Route exact path="/" component = {ArticleList} /> */}
+    
       <Route path="/profile" component = {Profile} />
       <Route path="/contact" component = {ContactForm} />
       {/* Route exact to Dashboard -- maybe website.com/Dashboard

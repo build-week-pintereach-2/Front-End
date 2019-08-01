@@ -1,10 +1,13 @@
-import { fetchArticlesPending, fetchAriclesSuccess, fetchArticlesError } from './action';
+export const FETCH_ARTICLES_PENDING = 'FETCH_ARTICLES_PENDING';
+export const FETCH_ARTICLES_SUCCESS = 'FETCH_ARTICLES_SUCCESS';
+export const FETCH_ARTICLES_ERROR = 'FETCH_ARTICLES_ERROR';
 
-function fetchArticles() {
-    return dispatch => {
+export const fetchArticles = () => dispatch => {
         dispatch(fetchArticlesPending());
         fetch('#')
-        .then (res => res.json())
+        .then (res => {
+            dispatch({type: FETCH_ARTICLES_SUCCESS, payload: res.json()})
+        })
         .then (res => {
             if(res.error) {
                 throw(res.error);
@@ -15,7 +18,9 @@ function fetchArticles() {
         .catch(error => {
             dispatch(fetchArticlesError(error));
         })
-    }
 }
 
-export default fetchArticles;
+
+
+
+

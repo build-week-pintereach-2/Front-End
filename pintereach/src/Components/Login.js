@@ -9,9 +9,8 @@ function Login(props) {
     function handleSubmit(event) {
         event.preventDefault();
         console.log (member);
-        axios.post('https://pintereach2.herokuapp.com/login',
-        {params: member })
-        .then(response => {
+        axios.post('https://pintereach2.herokuapp.com/login', member)
+               .then(response => {
             props.history.push('/');
             console.log(response);
         })

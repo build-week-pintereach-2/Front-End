@@ -9,8 +9,8 @@ export default function Signup(props) {
         event.preventDefault();
         console.log (member);
         /*if (member.password === member.passwordConfirm)*/ {
-            axios.post('https://pintereach2.herokuapp.com/register',
-            {params: member })
+            axios.post('https://pintereach2.herokuapp.com/register', member)        
+            
             .then(response => {
                 props.history.push('/');
             })

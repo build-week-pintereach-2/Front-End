@@ -1,74 +1,73 @@
 import React, {useState} from 'react';
+import { List } from 'semantic-ui-react';
+import axios from 'axios';
 
-
-export default function Signup() {
+export default function Signup(props) {
     const [member, setMember] = useState({});
-
+    const [error, setError] = useState();
     function handleSubmit(event) {
+        event.preventDefault();
         console.log (member);
-        event.preventDefault()
+        if (member.password === member.passwordConfirm) {
+            axios.get('https://pintereach2.herokuapp.com/register',
+            {params: member })
+            .then(response => {
+                props.history.push('/');
+            })
+            .catch(error => {
+                setError('Unable to register.');
+                console.log(error);
+            })
+        } else {
+            setError('Passwords do not match.');
+        }
     }
     function handleChange(event) {
         const updatedMember = { ...member, [event.target.name]: event.target.value };
     setMember(updatedMember);
 }
-        return (
-            <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Signup</legend>
-    <div className="form-group row">
-        <div className="input">
-            <label for="username" className="label">
-                Username
-                <input
+    return (
+        <form onSubmit={handleSubmit}>
+        <List>
+            <List.Item><h1>Signup</h1></List.Item>
+            <List.Item>{error}</List.Item>
+            <List.Item><input
                     type="text"
                     name="username"
                     placeholder="Username"
+                    autocomplete="username"
                     value={member.username}
                     onChange={handleChange}
-
-            />
-            </label>
-            <label for="email" className="label">
-                E-mail
+            /></List.Item>
+            <List.Item>
                 <input
                     type="text"
                     name="email"
                     placeholder="E-mail"
+                    autocomplete="username"
                     value={member.email}
                     onChange={handleChange}
-
-                />
-            </label>
-            <label for="password" className="label">
-                Password
-                <input
+                /></List.Item>
+            <List.Item><input
                     type="password"
                     name="password"
                     placeholder="Password"
+                    autocomplete="new-password"
                     value={member.password}
                     onChange={handleChange}
-
-                />
-            </label>
-            <label for="password_confirmation" className="label">
-                Confirm Password
-                <input
+                /></List.Item>
+            <List.Item><input
                     type="password"
-                    name="password_confirmmation"
+                    name="passwordConfirm"
                     placeholder="Confirm Password"
+                    autocomplete="new-password"
                     value={member.passwordConfirm}
                     onChange={handleChange}
-
-                />
-            </label>
-            
-            <button type="submit" className="Submit">
+                /></List.Item>
+            <List.Item><button type="submit" className="Submit">
                 Submit 
-            </button>
-        </div>
-    </div>
-    </fieldset>
+            </button></List.Item>
+        </List>
     </form>
     );
 }

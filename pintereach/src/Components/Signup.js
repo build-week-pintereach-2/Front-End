@@ -4,12 +4,21 @@ import React, {useState} from 'react';
 export default function Signup() {
     const [member, setMember] = useState({});
 
-
-    function handleChange() {}
-    return (
+    function handleSubmit(event) {
+        console.log (member);
+        event.preventDefault()
+    }
+    function handleChange(event) {
+        const updatedMember = { ...member, [event.target.name]: event.target.value };
+    setMember(updatedMember);
+}
+        return (
+            <form onSubmit={handleSubmit}>
+            <fieldset>
+                <legend>Signup</legend>
     <div className="form-group row">
         <div className="input">
-            <label for="Username" className="label">
+            <label for="username" className="label">
                 Username
                 <input
                     type="text"
@@ -58,5 +67,8 @@ export default function Signup() {
                 Submit 
             </button>
         </div>
-    </div>);
+    </div>
+    </fieldset>
+    </form>
+    );
 }

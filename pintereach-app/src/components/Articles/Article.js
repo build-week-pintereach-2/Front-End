@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// axios import
+import axios from 'axios';
 
 const Article = (props) => {
     console.log('props', props)
@@ -7,8 +7,15 @@ const Article = (props) => {
     const id = props.match.params.id;
 
     useEffect(() => {
-        //axios.get by article ID
-    })
+        axios
+            .get(`https://pintereach2.herokuapp.com/users/:id/pins`)
+            .then(response => {
+                setArticle(response.data);
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }, [id]);
 
     const saveArticle = () => {
         const addToProfile = props.addToProfile;

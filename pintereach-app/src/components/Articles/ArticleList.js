@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ArticleCard from './ArticleCard';
-// insert nav link here
-// import axios here
+import {NavLink} from 'react-router-dom'
+import axios from 'axios';
 
 const ArticleList = props => {
     const [articles, setArticles] = useState([])
     useEffect(() => {
         const getArticles = () => {
             axios
-            .get('#')
+            .get('https://pintereach2.herokuapp.com/users/:id/pins')
             .then(response => {
                 setArticles(response.data);
             })
@@ -32,7 +32,7 @@ const ArticleList = props => {
 function ArticleDetails ({ article }) {
     const { title, author, category, link, id } = article;
     return (
-        // Nav link to
+        <NavLink to={`/users/:id/pins`}>
         <div className="article-card">
             <h2>{title}</h2>
             <h4>{author}</h4>
@@ -40,7 +40,7 @@ function ArticleDetails ({ article }) {
             <p>{link}</p>
             <p>{id}</p>
         </div>
-        // </NavLink>
+        </NavLink>
     );
 }
 

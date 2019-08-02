@@ -10,9 +10,6 @@ const NavBar = () => {
                 <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
                         <a>Dashboard</a>
                     </Link> 
-                    <Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>
-                        <a>Search</a>
-                    </Link> 
                     <Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
                         <a>Profile</a>
                     </Link>    

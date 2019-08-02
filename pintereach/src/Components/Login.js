@@ -1,34 +1,63 @@
-import React from 'react';
+import React,{useState, Redirect} from 'react';
+import { List } from 'semantic-ui-react';
+import axios from 'axios';
 
 export default Login
-function Login() {
+function Login(props) {
+    const [member, setMember] = useState({});
+    const [error, setError] = useState();
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log (member);
+        axios.post('https://pintereach2.herokuapp.com/login', member)
+               .then(response => {
+            props.history.push('/');
+            console.log(response);
+        })
+        .catch(error => {
+            setError('Unable to login.');
+            console.log(error);
+        })
+    }
+    function handleChange(event) {
+        const updatedMember = { ...member, [event.target.name]: event.target.value };
+        setMember(updatedMember);
+    }
     return (
-    <div className="form-group row">
-        <div className="input">
-            <label for="Username" className="label">
-                Username
-                <input
+        <form onSubmit={handleSubmit}>
+        <List>
+            <List.Item><h1>Login</h1></List.Item>
+            <List.Item>{error}</List.Item>
+            <List.Item><input
                     type="text"
                     name="username"
                     placeholder="Username"
+                    autocomplete="username"
                     value={member.username}
                     onChange={handleChange}
+            /></List.Item>
+            {/* <List.Item>
+            <input
+                type="text"
+                name="email"
+                placeholder="E-mail"
+                autocomplete="username"
+                value={member.email}
+                onChange={handleChange}
 
-            />
-            </label>
-
-<label for="password" className="label">
-                Password
-                <input
+            /></List.Item> */}
+            <List.Item><input
                     type="password"
                     name="password"
                     placeholder="Password"
+                    autocomplete="current-password"
                     value={member.password}
                     onChange={handleChange}
-
-                />
-            </label>
-            </div>
-            </div>
+                /></List.Item>
+            <List.Item><button type="submit" className="Submit">
+                Submit 
+            </button></List.Item>
+            </List>
+            </form>
     )
 }

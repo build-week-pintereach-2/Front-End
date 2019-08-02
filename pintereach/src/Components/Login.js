@@ -9,10 +9,11 @@ function Login(props) {
     function handleSubmit(event) {
         event.preventDefault();
         console.log (member);
-        axios.get('https://pintereach2.herokuapp.com/login',
+        axios.post('https://pintereach2.herokuapp.com/login',
         {params: member })
         .then(response => {
             props.history.push('/');
+            console.log(response);
         })
         .catch(error => {
             setError('Unable to login.');
@@ -36,7 +37,7 @@ function Login(props) {
                     value={member.username}
                     onChange={handleChange}
             /></List.Item>
-            <List.Item>
+            {/* <List.Item>
             <input
                 type="text"
                 name="email"
@@ -45,7 +46,7 @@ function Login(props) {
                 value={member.email}
                 onChange={handleChange}
 
-            /></List.Item>
+            /></List.Item> */}
             <List.Item><input
                     type="password"
                     name="password"

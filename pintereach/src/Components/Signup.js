@@ -8,8 +8,8 @@ export default function Signup(props) {
     function handleSubmit(event) {
         event.preventDefault();
         console.log (member);
-        if (member.password === member.passwordConfirm) {
-            axios.get('https://pintereach2.herokuapp.com/register',
+        /*if (member.password === member.passwordConfirm)*/ {
+            axios.post('https://pintereach2.herokuapp.com/register',
             {params: member })
             .then(response => {
                 props.history.push('/');
@@ -18,9 +18,9 @@ export default function Signup(props) {
                 setError('Unable to register.');
                 console.log(error);
             })
-        } else {
+        } /*else {
             setError('Passwords do not match.');
-        }
+        }*/
     }
     function handleChange(event) {
         const updatedMember = { ...member, [event.target.name]: event.target.value };
@@ -56,14 +56,14 @@ export default function Signup(props) {
                     value={member.password}
                     onChange={handleChange}
                 /></List.Item>
-            <List.Item><input
+            {/* <List.Item><input
                     type="password"
                     name="passwordConfirm"
                     placeholder="Confirm Password"
                     autocomplete="new-password"
                     value={member.passwordConfirm}
                     onChange={handleChange}
-                /></List.Item>
+                /></List.Item> */}
             <List.Item><button type="submit" className="Submit">
                 Submit 
             </button></List.Item>
